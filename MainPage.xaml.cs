@@ -1,13 +1,14 @@
 ﻿using MauiApp2.ViewModel;
 
-namespace MauiApp2;
-
-public partial class MainPage : ContentPage
+namespace MauiApp2
 {
-	public MainPage(MainViewModel vm)
+	public partial class MainPage : ContentPage
 	{
-		InitializeComponent();
-		BindingContext = vm;
+		public MainPage(MainViewModel vm)
+		{
+			InitializeComponent();
+			BindingContext = vm;
+		}
 	}
-}
 
+}

@@ -1,11 +1,12 @@
-﻿namespace MauiApp2;
-
-public partial class AppShell : Shell
+﻿namespace MauiApp2
 {
-	public AppShell()
+	public partial class AppShell : Shell
 	{
-		InitializeComponent();
+		public AppShell()
+		{
+			InitializeComponent();
 
-		Routing.RegisterRoute(nameof(Page1), typeof(Page1));
+			Routing.RegisterRoute(nameof(Page1), typeof(Page1));
+		}
 	}
 }

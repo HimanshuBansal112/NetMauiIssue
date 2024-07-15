@@ -1,31 +1,31 @@
 ﻿using MauiApp2.ViewModel;
 using Microsoft.Extensions.Logging;
 
-namespace MauiApp2;
-
-public static class MauiProgram
+namespace MauiApp2
 {
-	public static MauiApp CreateMauiApp()
+	public static class MauiProgram
 	{
-		var builder = MauiApp.CreateBuilder();
-		builder
-			.UseMauiApp<App>()
-			.ConfigureFonts(fonts =>
-			{
-				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
+		public static MauiApp CreateMauiApp()
+		{
+			var builder = MauiApp.CreateBuilder();
+			builder
+				.UseMauiApp<App>()
+				.ConfigureFonts(fonts =>
+				{
+					fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+					fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+				});
 
 #if DEBUG
-		builder.Logging.AddDebug();
+			builder.Logging.AddDebug();
 #endif
+			builder.Services.AddSingleton<MainPage>();
+			builder.Services.AddSingleton<MainViewModel>();
 
-		builder.Services.AddSingleton<MainPage>();
-		builder.Services.AddSingleton<MainViewModel>();
+			builder.Services.AddTransient<Page1>();
+			builder.Services.AddTransient<Page1ViewModel>();
 
-		builder.Services.AddTransient<Page1>();
-		builder.Services.AddTransient<Page1ViewModel>();
-
-		return builder.Build();
+			return builder.Build();
+		}
 	}
 }
